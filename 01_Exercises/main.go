@@ -5,6 +5,30 @@ import "fmt"
 func main() {
 	HandsOnExcise1()
 	HandsOnExcise2()
+	HandsOnExcise3()
+}
+
+func HandsOnExcise3() {
+	/*
+		Hands-on exercise #3
+		Using the code from the previous exercise,
+		1. At the package level scope, assign the following values to the three variables
+			a. for x assign 42
+			b. for y assign “James Bond”
+			c. for z assign true
+		2. in func main
+			a. use fmt.Sprintf to print all of the VALUES to one single string. ASSIGN the
+			returned value of TYPE string using the short declaration operator to a
+			VARIABLE with the IDENTIFIER “s”
+			b. print out the value stored by variable “s”
+	*/
+
+	fmt.Println("HandsOnExcise3 ->Start")
+
+	x, y, z := 42, "James Bond", true
+	s := fmt.Sprintf("%d %s %t", x, y, z)
+	fmt.Println(s)
+	fmt.Println("HandsOnExcise3 ->END")
 
 }
 
