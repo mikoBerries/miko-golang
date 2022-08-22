@@ -6,6 +6,9 @@ import "fmt"
 var x string // init value string -> ""
 var y int    // init value int -> 0
 
+type hotdog int // similar to java class declaration
+var sausage hotdog
+
 func main() {
 	fmt.Println("123") //1 line
 
@@ -26,9 +29,21 @@ func main() {
 		fmt.Println(n, e)
 	}
 	dothings()
+	doOtherThings()
 
 }
+
+func doOtherThings() {
+	sausage = 10
+	fmt.Println("sausage value : ", sausage)   //10
+	fmt.Printf("sausage type :%T \n", sausage) //main.hotdog (package.class/type)
+}
 func dothings() {
-	fmt.Println("value x is :", x) // ""
-	fmt.Println("value y is :", y) // 0
+	fmt.Printf("value x is :" + x) // ""
+	fmt.Printf("%T \n", x)         // int
+	fmt.Print("value y is :")      // 0
+	fmt.Printf("%T \n", y)         // string
+
+	fmtedString := fmt.Sprintf("there is %d wolf in the shed number %d", 10, 1)
+	fmt.Println(fmtedString)
 }
