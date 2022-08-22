@@ -16,6 +16,10 @@ func main() {
 
 	//looping
 	for i := 0; i <= 100; i++ {
-		fmt.Println(i)
+		//:= is known as the short declaration operator
+		// use " _ " to dumping some unused throwback val
+		n, e := fmt.Println(i)
+		fmt.Println(n, e)
 	}
+
 }
