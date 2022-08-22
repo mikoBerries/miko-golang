@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+//global var
+var x string // init value string -> ""
+var y int    // init value int -> 0
+
 func main() {
 	fmt.Println("123") //1 line
 
@@ -21,5 +25,10 @@ func main() {
 		n, e := fmt.Println(i)
 		fmt.Println(n, e)
 	}
+	dothings()
 
+}
+func dothings() {
+	fmt.Println("value x is :", x) // ""
+	fmt.Println("value y is :", y) // 0
 }
