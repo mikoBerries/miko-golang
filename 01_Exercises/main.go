@@ -6,6 +6,33 @@ func main() {
 	HandsOnExcise1()
 	HandsOnExcise2()
 	HandsOnExcise3()
+	HandsOnExcise4()
+}
+
+func HandsOnExcise4() {
+	/*
+		Hands-on exercise #4
+		● FYI - nice documentation and new terminology “underlying type”
+		○ https://golang.org/ref/spec#Types
+		For this exercise
+		1. Create your own type. Have the underlying type be an int.
+		2. create a VARIABLE of your new TYPE with the IDENTIFIER “x” using the “VAR” keyword
+		3. in func main
+			a. print out the value of the variable “x”
+			b. print out the type of the variable “x”
+			c. assign 42 to the VARIABLE “x” using the “=” OPERATOR
+			d. print out the value of the variable “x”
+	*/
+
+	fmt.Println("HandsOnExcise4 ->Start")
+
+	type sleppyCat int
+	var x sleppyCat
+	fmt.Printf("%v \t %T \n", x, x)
+	x = 42
+	fmt.Printf("%v \t %T \n", x, x)
+
+	fmt.Println("HandsOnExcise4 ->Start")
 }
 
 func HandsOnExcise3() {
@@ -26,7 +53,8 @@ func HandsOnExcise3() {
 	fmt.Println("HandsOnExcise3 ->Start")
 
 	x, y, z := 42, "James Bond", true
-	s := fmt.Sprintf("%d %s %t", x, y, z)
+	// s := fmt.Sprintf("%d %s %t", x, y, z)
+	s := fmt.Sprintf("%v %v %v", x, y, z)
 	fmt.Println(s)
 	fmt.Println("HandsOnExcise3 ->END")
 
