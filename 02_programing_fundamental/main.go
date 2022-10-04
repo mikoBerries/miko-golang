@@ -5,6 +5,8 @@ import (
 	"runtime"
 )
 
+const a = "string"
+
 func main() {
 	//selected type by go
 	a := 12
@@ -17,4 +19,13 @@ func main() {
 
 	fmt.Println(runtime.GOOS)
 	fmt.Println(runtime.GOARCH)
+	const p = "death & taxes"
+
+	const q = 42
+
+	fmt.Println("p - ", p)
+	fmt.Println("q - ", q)
+
+	// a CONSTANT is a simple unchanging value
+
 }
