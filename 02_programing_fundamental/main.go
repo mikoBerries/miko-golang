@@ -7,6 +7,11 @@ import (
 
 const x = "new string" //automated gengerat string type
 const xy string = "new string"
+const (
+	j = iota
+	k
+	l
+)
 
 func main() {
 	//selected type by go
@@ -30,4 +35,10 @@ func main() {
 
 	// a CONSTANT is a simple unchanging value
 
+	//iota automated increment interger for constant
+
+	fmt.Println(">> IOTA <<")
+	fmt.Println("j - ", j)
+	fmt.Println("k - ", k)
+	fmt.Println("l - ", l)
 }
