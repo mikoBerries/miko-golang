@@ -5,7 +5,8 @@ import (
 	"runtime"
 )
 
-const a = "string"
+const x = "new string" //automated gengerat string type
+const xy string = "new string"
 
 func main() {
 	//selected type by go
@@ -22,7 +23,8 @@ func main() {
 	const p = "death & taxes"
 
 	const q = 42
-
+	fmt.Println("x - ", x)
+	fmt.Println("xy - ", xy)
 	fmt.Println("p - ", p)
 	fmt.Println("q - ", q)
 
