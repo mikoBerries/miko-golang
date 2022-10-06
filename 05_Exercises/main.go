@@ -81,9 +81,10 @@ func main() {
 
 	*/
 	mytruck := truck{
-		vehicle:   vehicle{4, "black"},
-		fourWheel: true,
+		vehicle{4, "black"},
+		true,
 	}
+	//or
 	mySedan := sedan{
 		vehicle: vehicle{2, "white"},
 		luxury:  true,
