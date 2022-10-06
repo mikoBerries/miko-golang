@@ -42,12 +42,48 @@ func main() {
 	fmt.Println(y)
 
 	//make (type,len, cap)
-	//
+	//array is slice with cap
 	xyz := make([]int, 10, 20)
 	xyz = append(xyz, y[:11]...)
 	fmt.Println(xyz)
 	fmt.Println(len(xyz))
 	fmt.Println(cap(xyz))
 
-	//array is slice with cap
+	//multidimentional array
+
+	onePeople := []string{"miko", "berries", "087"}
+	twoPeople := []string{"miko2", "berries2", "0872222"}
+	crowdofpeople := [][]string{onePeople, twoPeople}
+	fmt.Println(crowdofpeople)
+
+	//map
+	m := map[string]int{
+		"jamesbond": 100,
+		"bondjames": 10,
+	}
+	fmt.Println(m["jamesbond"])
+	fmt.Println(m["bondjames"])
+	fmt.Println(m["jamesbondong"]) // unfind index return default int "0"
+
+	if v, ok := m["jamesbondong"]; ok {
+		fmt.Println(v)
+		fmt.Println(ok)
+	} else {
+		fmt.Println(v)
+		fmt.Println(ok)
+	}
+	//adding elemnt to map
+
+	m["newThings"] = 32000 //adding new idex adn new value
+	m["deletethis"] = 9999999
+	for i, v := range m {
+		println(i, v)
+	}
+	//deleting map
+
+	delete(m, "deletethis")
+	for i, v := range m {
+		println(i, v)
+	}
+
 }
