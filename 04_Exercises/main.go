@@ -107,7 +107,7 @@ func main() {
 		Utah`, ` Vermont`, ` Virginia`, ` Washington`, ` West Virginia`, ` Wisconsin`, ` Wyoming`,
 
 	*/
-	state := make([]string, 50, 50)
+	state := make([]string, 0, 50)
 	fmt.Println(len(state))
 	fmt.Println(cap(state))
 	temp := []string{` Alabama`, ` Alaska`, ` Arizona`, ` Arkansas`, ` California`, ` Colorado`, ` Connecticut`, `
@@ -118,9 +118,10 @@ func main() {
 		` Pennsylvania`, ` Rhode Island`, ` South Carolina`, ` South Dakota`, ` Tennessee`, ` Texas`, `
 	Utah`, ` Vermont`, ` Virginia`, ` Washington`, ` West Virginia`, ` Wisconsin`, ` Wyoming`,
 	}
-	for i, v := range temp {
-		state[i] = v
-	}
+	// for i, v := range temp {
+	// 	state[i] = v
+	// }
+	state = append(state, temp...)
 	for i := 0; i < len(state); i++ {
 		println(state[i])
 	}
@@ -182,9 +183,9 @@ func main() {
 	}
 
 	/*
-		Hands-on exercise #10
-	Using the code from the previous example, delete a record from your map. Now print the map
-	out using the “range” loop
+			Hands-on exercise #10
+		Using the code from the previous example, delete a record from your map. Now print the map
+		out using the “range” loop
 
 	*/
 	if _, ok := tempmap["new_things"]; ok {
