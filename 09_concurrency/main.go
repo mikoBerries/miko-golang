@@ -18,6 +18,46 @@ var (
 )
 
 func main() {
+	fmt.Println("OS\t\t", runtime.GOOS)       //OS               windows
+	fmt.Println("ARCH\t\t", runtime.GOARCH)   //ARCH             amd64
+	fmt.Println("CPUs\t\t", runtime.NumCPU()) //CPUs             4
+	fmt.Println("CPUs:", runtime.NumCPU())
+	fmt.Println("Goroutines:", runtime.NumGoroutine())
+
+	counter := 0
+
+	const gs = 100
+
+	wg.Add(gs)
+
+	//mutex.WRlock() // write and read lock
+	//mutex.Rlock() // read lock
+	//see at go doc
+
+	for i := 0; i < gs; i++ {
+		go func() {
+			mutex.Lock() //lock this block of code
+			v := counter
+			// time.Sleep(time.Second)
+			runtime.Gosched()
+			v++
+			counter = v
+			mutex.Unlock() //unlock
+			wg.Done()
+		}()
+		fmt.Println("Goroutines:", runtime.NumGoroutine())
+	}
+	wg.Wait()
+	fmt.Println("Goroutines:", runtime.NumGoroutine())
+	fmt.Println("count:", counter)
+	concurrency1()
+	// time.Sleep(1*time.Second)
+	fmt.Println("CPUs\t\t", runtime.NumCPU())             //CPUs             4
+	fmt.Println("Goroutines\t\t", runtime.NumGoroutine()) //			2
+
+}
+
+func concurrency1() {
 	/*
 		Goroutines
 			Concurrency in Golang is the ability for functions to run independent of each other.
