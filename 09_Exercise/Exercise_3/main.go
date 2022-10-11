@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
+	"sync/atomic"
 )
 
 var counter int64
@@ -29,16 +29,24 @@ func main() {
 	*/
 	wg.Add(100)
 	for i := 0; i < 100; i++ {
-		go incrementer()
+		// go incrementer()
+		go incrementerAtomic()
 	}
 	wg.Wait()
 }
 
-func incrementer() {
+// func incrementer() {
+// 	defer wg.Done()
+// 	mutex.Lock()
+// 	counter += 1
+// 	// runtime.Gosched()
+// 	fmt.Println(counter)
+// 	mutex.Unlock()
+// }
+
+func incrementerAtomic() {
 	defer wg.Done()
-	mutex.Lock()
-	counter += 1
-	runtime.Gosched()
-	fmt.Println(counter)
-	mutex.Unlock()
+	atomic.AddInt64(&counter, 1)
+	fmt.Println(atomic.LoadInt64(&counter))
+
 }
