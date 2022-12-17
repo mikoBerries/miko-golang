@@ -39,7 +39,7 @@ func BenchmarkUsecount(b *testing.B) {
 	}
 }
 
-func exampleUseCount() {
+func ExampleUseCount() {
 	fmt.Println(Count("ABC DEF XYZ"))
 	//output:
 	//3
