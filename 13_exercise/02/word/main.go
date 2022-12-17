@@ -13,7 +13,9 @@ func UseCount(s string) map[string]int {
 	return m
 }
 
+// Count func to counting string
 func Count(s string) int {
 	// write the code for this func
-	retun 0
+	temp := strings.Split(s, " ")
+	return len(temp)
 }
