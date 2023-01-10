@@ -8,13 +8,14 @@ func main() {
 	fmt.Println(len(x))
 	x[4] = 0
 
-	//slice
+	//slice init -> make([]type,length,capacity)
+	//capacity is underlying array in slice if capacity exceed it'll make new array with 2x much of old capacity
 	//x := type{values} //composite literal
 	y := []int{1, 2, 3, 4, 5, 6, 7, 8}
 
 	fmt.Println(y)
-	fmt.Println(len(y))
-	fmt.Println(cap(y))
+	fmt.Println(len(y)) //length 8
+	fmt.Println(cap(y)) //cap 8
 
 	//acces slice
 
@@ -29,7 +30,7 @@ func main() {
 	fmt.Println(y[1:4]) //start from index 1 until <4
 
 	//append slice and slice
-	// .... unlimite ddata
+	// ... unlimite ddata
 
 	y = append(y, 11, 12, 13, 14, 15)
 	fmt.Println(y)
@@ -42,7 +43,7 @@ func main() {
 	fmt.Println(y)
 
 	//make (type,len, cap)
-	//array is slice with cap
+	//slice is array with capacity
 	xyz := make([]int, 10, 20)
 	xyz = append(xyz, y[:11]...)
 	fmt.Println(xyz)
@@ -63,7 +64,7 @@ func main() {
 	}
 	fmt.Println(m["jamesbond"])
 	fmt.Println(m["bondjames"])
-	fmt.Println(m["jamesbondong"]) // unfind index return default int "0"
+	fmt.Println(m["jamesbondong"]) // zero result index -> return default int "0"
 
 	if v, ok := m["jamesbondong"]; ok {
 		fmt.Println(v)
@@ -72,10 +73,11 @@ func main() {
 		fmt.Println(v)
 		fmt.Println(ok)
 	}
-	//adding elemnt to map
 
-	m["newThings"] = 32000 //adding new idex adn new value
-	m["deletethis"] = 9999999
+	//adding element to map
+
+	m["newThings"] = 32000    //adding new index and new value
+	m["deletethis"] = 9999999 //adding new index and new value
 	for i, v := range m {
 		println(i, v)
 	}
@@ -86,4 +88,6 @@ func main() {
 		println(i, v)
 	}
 
+	//slice is just pointer to underlaying array
+	//so slice have more flexibilty length
 }
