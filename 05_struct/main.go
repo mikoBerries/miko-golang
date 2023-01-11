@@ -1,5 +1,7 @@
 package main
 
+//OOP usage in golangby ardan labs
+//https://www.ardanlabs.com/blog/2015/09/composition-with-go.html
 import "fmt"
 
 type person struct {
@@ -12,6 +14,24 @@ type person struct {
 type secretAgent struct {
 	person
 	lol bool
+}
+
+// user defines a user in the program.
+type user struct {
+	name  string
+	email string
+	level string
+}
+
+// admin represents an admin user with privileges.
+type admin struct {
+	user         // admin is also user (admin struct can use user struct field and func)
+	level string //overiding field level string in user struct
+}
+
+//notify implements a method that can be called via a pointer of type user.
+func (u *user) notify() {
+	fmt.Printf("Sending user email To %s<%s>\n", u.name, u.email)
 }
 
 func main() {
@@ -58,4 +78,20 @@ func main() {
 		ages:  10,
 	}
 	fmt.Println(p45)
+
+	Ad := admin{
+		user: user{
+			"john smith",     //name
+			"john@yahoo.com", //email
+			"user",
+		},
+		level: "admin",
+	}
+	fmt.Println(Ad)
+	fmt.Println(Ad.level) //override field
+	fmt.Println(Ad.user.level)
+	Ad.notify()      //calling user func from admin struct
+	Ad.user.notify() //calling user func from user struct
+
+	//use same name to override field/function from outer struct
 }

@@ -57,7 +57,8 @@ func main() {
 	crowdofpeople := [][]string{onePeople, twoPeople}
 	fmt.Println(crowdofpeople)
 
-	//map
+	//map section
+
 	m := map[string]int{
 		"jamesbond": 100,
 		"bondjames": 10,
@@ -66,6 +67,8 @@ func main() {
 	fmt.Println(m["bondjames"])
 	fmt.Println(m["jamesbondong"]) // zero result index -> return default int "0"
 
+	//return
+	//value , boolean found
 	if v, ok := m["jamesbondong"]; ok {
 		fmt.Println(v)
 		fmt.Println(ok)
@@ -90,4 +93,10 @@ func main() {
 
 	//slice is just pointer to underlaying array
 	//so slice have more flexibilty length
+
+	//reference type: (just like pointer address when passed to function etc)
+	//slice
+	//array
+	//map
+	//channel
 }
