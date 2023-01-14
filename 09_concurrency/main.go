@@ -14,13 +14,19 @@ import (
 var (
 	wg      sync.WaitGroup
 	counter int32
-	mutex   sync.Mutex
+	mutex   sync.Mutex //mutex -> Mutual exclusion object
 )
 
-func main() {
+//inital func to set all param before main() start or file used
+func init() {
+	fmt.Println("this is inside func init()")
 	fmt.Println("OS\t\t", runtime.GOOS)       //OS               windows
 	fmt.Println("ARCH\t\t", runtime.GOARCH)   //ARCH             amd64
 	fmt.Println("CPUs\t\t", runtime.NumCPU()) //CPUs             4
+}
+
+func main() {
+	fmt.Println("this is inside func main()")
 	fmt.Println("CPUs:", runtime.NumCPU())
 	fmt.Println("Goroutines:", runtime.NumGoroutine())
 
@@ -194,6 +200,8 @@ func increment(name string) {
 	defer wg.Done() // Schedule the call to Done to tell main we are done.
 
 	for range name {
+		//atomic
+		//https://golangdocs.com/atomic-operations-in-golang-atomic-package#:~:text=Atomic%20operations%20are%20those%20which,achieve%20synchronization%20when%20doing%20concurrency.
 		atomic.AddInt32(&counter, 1)
 		//Race conditions occur due to unsynchronized access to shared resource and attempt to read and write to that resource at the same time.
 		//Atomic functions provide low-level locking mechanisms for synchronizing access to integers and pointers.
